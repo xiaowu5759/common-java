@@ -13,6 +13,9 @@ import java.util.regex.Pattern;
  * @date 2020/7/31 13:38
  */
 public class ChineseCharUtils {
+
+    // 转拼音功能
+
     /**
      * 判断字符是否是中文
      *

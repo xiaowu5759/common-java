@@ -4,8 +4,8 @@ package com.xiaowu5759.common.constant;
  * @author xiaowu
  * @date 2021/5/7 10:37 AM
  */
-public final class WechatPayConstants {
-    private WechatPayConstants(){}
+public final class WechatConstants {
+    private WechatConstants(){}
 
     public static final String GIFT_UNDELIVERED_STATUS = "未发货";
 

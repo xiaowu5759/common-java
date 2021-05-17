@@ -12,12 +12,6 @@ import java.util.Date;
  */
 public class DateUtils {
 
-    // 获取开始时间和结束时间
-
-    // 获取偏移量
-
-    // 获取时间差
-
     // 获取周几 0 1 2 3 4 5 6
     public static int getWeekDay(Date date){
         Calendar cal = Calendar.getInstance();

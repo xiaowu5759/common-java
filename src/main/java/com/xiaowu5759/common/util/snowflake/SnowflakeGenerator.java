@@ -12,21 +12,10 @@ import javax.annotation.PostConstruct;
  * @author xiaowu
  * @date 2021/3/20 9:40 AM
  */
-@Component
-//@Slf4j
 public class SnowflakeGenerator {
 
 //    @Autowired
 //    private RedisTemplate<String, Object> redisTemplate;
-
-    // 核心代码在这里，在bean构造之前，先初始化
-    // 在工具类创建一个自身的静态对象
-    private static SnowflakeGenerator generator;
-
-    @PostConstruct
-    public void init() {
-        generator = this;
-    }
 
     public static long genAtomId(long workerId, DefaultSnowflakeEnum snowflakeEnum) {
         DefaultSnowflake defaultSnowflake = DefaultSnowflake.getSingleton();
