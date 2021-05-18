@@ -35,7 +35,9 @@ public class UrlParseUtils {
         UrlRequestParam urlRequestParam = new UrlRequestParam();
         url = decode(url);
         urlRequestParam.setOriginUrl(url);
-        List<String> list = listElement(url);
+        String urlP = url;
+        List<String> list = listElement(urlP);
+
         if(list.get(list.size() - 1).contains("=")){
             urlRequestParam.setPathLength(list.size() - 1);
             // 添加params
@@ -46,18 +48,32 @@ public class UrlParseUtils {
             urlRequestParam.setOriginParams(new HashMap<String, Object>());
         }
 
-        // 添加三段
-        if (urlRequestParam.getPathLength() == 1) {
-            urlRequestParam.setFirstPath(list.get(0));
-        } else if (urlRequestParam.getPathLength() == 2) {
-            urlRequestParam.setFirstPath(list.get(0));
-            urlRequestParam.setSecondPath(list.get(1));
-        } else if (urlRequestParam.getPathLength() == 3) {
-            urlRequestParam.setFirstPath(list.get(0));
-            urlRequestParam.setSecondPath(list.get(1));
-            urlRequestParam.setThirdPath(list.get(2));
+        if (!url.startsWith("/")) {
+            urlRequestParam.setDomainName(list.get(0));
+            // 添加三段
+            if (urlRequestParam.getPathLength() == 1) {
+                urlRequestParam.setFirstPath(list.get(1));
+            } else if (urlRequestParam.getPathLength() == 2) {
+                urlRequestParam.setFirstPath(list.get(1));
+                urlRequestParam.setSecondPath(list.get(2));
+            } else if (urlRequestParam.getPathLength() == 3) {
+                urlRequestParam.setFirstPath(list.get(1));
+                urlRequestParam.setSecondPath(list.get(2));
+                urlRequestParam.setThirdPath(list.get(3));
+            }
+        } else {
+            // 添加三段
+            if (urlRequestParam.getPathLength() == 1) {
+                urlRequestParam.setFirstPath(list.get(0));
+            } else if (urlRequestParam.getPathLength() == 2) {
+                urlRequestParam.setFirstPath(list.get(0));
+                urlRequestParam.setSecondPath(list.get(1));
+            } else if (urlRequestParam.getPathLength() == 3) {
+                urlRequestParam.setFirstPath(list.get(0));
+                urlRequestParam.setSecondPath(list.get(1));
+                urlRequestParam.setThirdPath(list.get(2));
+            }
         }
-
 
         return urlRequestParam;
     }
@@ -140,13 +156,33 @@ public class UrlParseUtils {
      * @return
      */
     public static List<String> listElement(String url) {
-        url = url.replace(".html", "/.html").replace("/.html", "/").replace("?", "");
-        // 消除第一个 /
-        url = url.substring(1, url.length());
-        String[] split = url.split("/");
+        url = url.replace(".html", "/.html").replace("/.html", "");
+        // 如果以https://开头，或者http://开头
+        // 2021-05-18 解析完整的http:// url，或者是以/开头两种区分
+        if (url.startsWith("https://")) {
+            url = url.substring(8, url.length());
+        }
+        if (url.startsWith("http://")) {
+            url = url.substring(7, url.length());
+        }
+        if (url.startsWith("/")) {
+            url = url.substring(1, url.length());
+        }
 
-        // 封装
-        return new ArrayList<String>(Arrays.asList(split));
+        // .replace("?", "")，先获取完整参数
+        String params = null;
+        if (url.contains("?")) {
+            params = url.substring(url.indexOf("?") + 1, url.length());
+            url = url.substring(0, url.indexOf("?"));
+        }
+
+        String[] split = url.split("/");
+        List<String> list = new ArrayList<>(Arrays.asList(split));
+        if (params != null) {
+            list.add(params);
+        }
+
+        return list;
     }
 
     /**
@@ -163,7 +199,7 @@ public class UrlParseUtils {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         // 这种理想型的才可以
-        String url = "/tietu/soft_f2.html?page=1&maxPrice=350";
+        String url = "https://www.znzmo.com/tietu/soft_f2.html?page=1&maxPrice=350";
 //        url = "/tietu/soft_f2";
 
         UrlRequestParam urlRequestParam = getUrlRequestParam(url);

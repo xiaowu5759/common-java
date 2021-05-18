@@ -1,5 +1,6 @@
 package com.xiaowu5759.common.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,18 +12,21 @@ public class UrlRequestParam {
 
     private String originUrl;
 
+    private String domainName;
+
     private String firstPath;
 
     private String secondPath;
 
     private String thirdPath;
 
+    // 依次是0，1，2，3
     private int pathLength;
 
     // 有可能存在array
-    private Map<String, Object> originParams;
+    private Map<String, Object> originParams = new HashMap<>();
 
-    private Map<String, Object> businessParams;
+    private Map<String, Object> businessParams = new HashMap<>();
 
     public UrlRequestParam() {
     }
@@ -33,6 +37,14 @@ public class UrlRequestParam {
 
     public void setOriginUrl(String originUrl) {
         this.originUrl = originUrl;
+    }
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
     }
 
     public String getFirstPath() {

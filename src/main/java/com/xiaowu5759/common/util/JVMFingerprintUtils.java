@@ -6,6 +6,8 @@ import cn.hutool.core.util.RandomUtil;
 import java.lang.management.ManagementFactory;
 
 /**
+ * https://www.codenong.com/8302634/
+ *
  * @author xiaowu
  * @date 2021/5/14 2:52 PM
  */
