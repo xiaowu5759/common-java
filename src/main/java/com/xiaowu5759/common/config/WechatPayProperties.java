@@ -1,4 +1,4 @@
-package com.xiaowu5759.common.prop;
+package com.xiaowu5759.common.config;
 
 /**
  * @author xiaowu

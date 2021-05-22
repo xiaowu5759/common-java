@@ -39,13 +39,26 @@ public class UrlParseUtils {
         List<String> list = listElement(urlP);
 
         if(list.get(list.size() - 1).contains("=")){
-            urlRequestParam.setPathLength(list.size() - 1);
-            // 添加params
-            Map<String, Object> mapParams = mapParamsValue(list.get(list.size() - 1));
-            urlRequestParam.setOriginParams(mapParams);
+            if(!url.startsWith("/")) {
+                urlRequestParam.setPathLength(list.size() - 2);
+                // 添加params
+                Map<String, Object> mapParams = mapParamsValue(list.get(list.size() - 1));
+                urlRequestParam.setOriginParams(mapParams);
+            } else {
+                urlRequestParam.setPathLength(list.size() - 1);
+                // 添加params
+                Map<String, Object> mapParams = mapParamsValue(list.get(list.size() - 1));
+                urlRequestParam.setOriginParams(mapParams);
+            }
+
         } else {
-            urlRequestParam.setPathLength(list.size());
-            urlRequestParam.setOriginParams(new HashMap<String, Object>());
+            if(!url.startsWith("/")) {
+                urlRequestParam.setPathLength(list.size() - 1);
+                urlRequestParam.setOriginParams(new HashMap<String, Object>());
+            } else {
+                urlRequestParam.setPathLength(list.size());
+                urlRequestParam.setOriginParams(new HashMap<String, Object>());
+            }
         }
 
         if (!url.startsWith("/")) {
@@ -56,7 +69,7 @@ public class UrlParseUtils {
             } else if (urlRequestParam.getPathLength() == 2) {
                 urlRequestParam.setFirstPath(list.get(1));
                 urlRequestParam.setSecondPath(list.get(2));
-            } else if (urlRequestParam.getPathLength() == 3) {
+            } else if (urlRequestParam.getPathLength() >= 3) {
                 urlRequestParam.setFirstPath(list.get(1));
                 urlRequestParam.setSecondPath(list.get(2));
                 urlRequestParam.setThirdPath(list.get(3));
@@ -68,7 +81,7 @@ public class UrlParseUtils {
             } else if (urlRequestParam.getPathLength() == 2) {
                 urlRequestParam.setFirstPath(list.get(0));
                 urlRequestParam.setSecondPath(list.get(1));
-            } else if (urlRequestParam.getPathLength() == 3) {
+            } else if (urlRequestParam.getPathLength() >= 3) {
                 urlRequestParam.setFirstPath(list.get(0));
                 urlRequestParam.setSecondPath(list.get(1));
                 urlRequestParam.setThirdPath(list.get(2));
@@ -199,8 +212,10 @@ public class UrlParseUtils {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         // 这种理想型的才可以
-        String url = "https://www.znzmo.com/tietu/soft_f2.html?page=1&maxPrice=350";
+//        String url = "https://www.znzmo.com/tietu/soft_f2.html?page=1&maxPrice=350";
 //        url = "/tietu/soft_f2";
+//        String url = "https://openapi.alipay.com/gateway.do";
+        String url = "https://www.znzmo.com/payMiddleWare.html?scene=XFSTES";
 
         UrlRequestParam urlRequestParam = getUrlRequestParam(url);
         System.out.println(JSON.toJSON(urlRequestParam));

@@ -1,4 +1,4 @@
-package com.xiaowu5759.common.prop;
+package com.xiaowu5759.common.config;
 
 /**
  * 可配置的相关部分，从配置文件中获取
