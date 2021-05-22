@@ -1,7 +1,6 @@
 package com.xiaowu5759.common.result;
 
 
-import com.xiaowu5759.common.enums.ErrorCodeEnum;
 import com.xiaowu5759.common.exception.BusinessException;
 
 /**

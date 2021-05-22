@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.exception;
 
 
-import com.xiaowu5759.common.enums.ErrorCodeEnum;
+import com.xiaowu5759.common.result.ErrorCodeEnum;
 
 /**
  * 通用业务异常类，向上抛出处理

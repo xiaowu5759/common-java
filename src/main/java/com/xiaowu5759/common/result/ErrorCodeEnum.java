@@ -1,4 +1,4 @@
-package com.xiaowu5759.common.enums;
+package com.xiaowu5759.common.result;
 
 /**
  * 错误码

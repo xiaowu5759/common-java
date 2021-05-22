@@ -1,8 +1,6 @@
 package com.xiaowu5759.common.result;
 
 
-import com.xiaowu5759.common.enums.ErrorCodeEnum;
-
 /**
  * 统一返回结果-封装类
  *
