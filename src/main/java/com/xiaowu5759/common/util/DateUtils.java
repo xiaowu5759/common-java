@@ -1,5 +1,9 @@
 package com.xiaowu5759.common.util;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.date.Week;
+import com.xiaowu5759.common.enums.WeekEnum;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,23 +16,41 @@ import java.util.Date;
  */
 public class DateUtils {
 
-    // 获取周几 0 1 2 3 4 5 6
-    public static int getWeekDay(Date date){
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-//        cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
-        return cal.get(Calendar.DAY_OF_WEEK) - 1;
+    // 获取周几 1, 2, 3, 4, 5, 6, 7
+    public static int getWeekNum(Date date){
+        WeekEnum weekDay = getWeekDay(date);
+        return weekDay.getNumber();
     }
 
     // 获取周几
-    public static String getWeekDayString(Date date){
-        String[] weeks = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        int weekIndex = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (weekIndex < 0) {
-            weekIndex = 0;
+    public static String getWeekString(Date date){
+        WeekEnum weekDay = getWeekDay(date);
+        return weekDay.getCnName();
+    }
+
+    public static WeekEnum getWeekDay(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int weekIndex = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        // 周日转化为0
+        if (weekIndex <= 0 || weekIndex > 7) {
+            // 周日是阳光的一天
+            weekIndex = 7;
         }
-        return weeks[weekIndex];
+        for (WeekEnum weekEnum:WeekEnum.values()) {
+            if(weekIndex == weekEnum.getNumber()){
+                return weekEnum;
+            }
+        }
+        return WeekEnum.SUNDAY;
+    }
+
+
+
+    public static void main(String[] args) {
+        // 返回的周日是1，不符合中国习惯
+        Week week = DateUtil.dayOfWeekEnum(new Date());
+        WeekEnum weekDay = getWeekDay(new Date());
+        System.out.println(weekDay);
     }
 }
