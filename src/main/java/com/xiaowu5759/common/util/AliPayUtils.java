@@ -78,13 +78,12 @@ public class AliPayUtils {
             PrivateKey priKey = getPrivateKeyFromPKCS8(AliPayConstants.SIGN_TYPE_RSA,
                     new ByteArrayInputStream(privateKey.getBytes()));
             // getSignAlgorithm()
-            Signature signature = Signature.getInstance(AliPayConstants.SIGN_ALGORITHMS);
+            Signature signature = Signature.getInstance(AliPayConstants.SIGN_SHA256RSA_ALGORITHMS);
 
             signature.initSign(priKey);
             signature.update(signContent.getBytes(CharsetConstants.UTF_8));
 
             byte[] signed = signature.sign();
-
             return Base64.encode(signed);
         } catch (Exception e) {
             throw new RuntimeException("RSAcontent = " + signContent + "; charset = utf-8", e);
@@ -100,7 +99,7 @@ public class AliPayUtils {
 
         KeyFactory keyFactory = KeyFactory.getInstance(algorithm);
 
-        // byte[] encodedKey = StreamUtil.readText(ins).getBytes();
+//         byte[] encodedKey = StreamUtil.readText(ins).getBytes();
         String text = IoUtil.read(ins, CharsetConstants.UTF_8);
         byte[] encodedKey = text.getBytes(CharsetConstants.UTF_8);
 

@@ -16,4 +16,6 @@ public final class AliPayConstants {
 
     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
 
+    public static final String SIGN_SHA256RSA_ALGORITHMS = "SHA256WithRSA";
+
 }

@@ -15,6 +15,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
+ * 在使用的地方 @Import(SpringUtil.class)
+ * 且需要初始化 applicationContext 上下文
+ *
  * @author xiaowu
  * @date 2021/4/20 1:40 PM
  */

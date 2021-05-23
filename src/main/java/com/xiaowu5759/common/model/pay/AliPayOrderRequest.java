@@ -7,7 +7,7 @@ import com.xiaowu5759.common.constant.CharsetConstants;
  * @author xiaowu
  * @date 2021/5/18 2:16 PM
  */
-public class AliPayOrderReqeust {
+public class AliPayOrderRequest {
     /**
      * app_id
      */

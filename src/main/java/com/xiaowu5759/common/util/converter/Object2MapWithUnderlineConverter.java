@@ -29,8 +29,10 @@ public class Object2MapWithUnderlineConverter{
                 field.setAccessible(true);
                 String fieldName = field.getName();
                 fieldName = CamelCaseUtils.toUnderlineName(fieldName);
-                String val = field.get(value) == null ? "" : String.valueOf(field.get(value));
-                map.put(fieldName, val);
+//                String val = field.get(value) == null ? "" : String.valueOf(field.get(value));
+                if(field.get(value) != null){
+                    map.put(fieldName, String.valueOf(field.get(value)));
+                }
             }
             return map;
         } catch (Exception e) {
