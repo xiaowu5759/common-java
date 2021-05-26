@@ -378,27 +378,6 @@ public class WechatUtils {
 
 
 
-
-    /**
-     * 装载关注后回复的消息
-     *
-     * @param toUserName
-     * @param fromUserName
-     * @param content
-     * @return
-     */
-//    public static String initText(String toUserName, String fromUserName, String content, String msgType) {
-//        String result = "<xml>\n" +
-//                "  <ToUserName><![CDATA[" + toUserName + "]]></ToUserName>\t\n" +
-//                "  <FromUserName><![CDATA[" + fromUserName + "]]></FromUserName>\t\n" +
-//                "  <CreateTime>" + System.currentTimeMillis() + "></CreateTime>\t\n" +
-//                "  <MsgType><![CDATA[" + msgType + "]]></MsgType>\n" +
-//                "  <Content><![CDATA[" + content + "]]></Content>\n" +
-//                "</xml>";
-//        return result;
-//    }
-
-
     /**
      * 装载并发送模板消息
      * {
@@ -475,27 +454,4 @@ public class WechatUtils {
         return result;
     }
 
-    /**
-     * 解析xml文件
-     *
-     */
-    public static void xml2Map(){
-//        Map<String, Object> map = new HashMap<>();
-//        SAXReader reader = new SAXReader();
-//        //从request对象中获取输入流
-//        InputStream ins = request.getInputStream();
-//        //使用reader对象读取输入流,解析为XML文档
-//        Document doc = reader.read(ins);
-//        //获取XML根元素
-//        Element root = doc.getRootElement();
-//        //将根元素的所有节点，放入列表中
-//        List<Element> list = root.elements();
-//        //遍历list对象，并保存到集合中
-//        for (Element element : list) {
-//            map.put(element.getName(), element.getText());
-//        }
-//        ins.close();
-//
-//        log.info("map={}", JSON.toJSONString(map));
-    }
 }

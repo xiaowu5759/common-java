@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class UrlComposeUtils {
 
-    public static String genUrlParams(String baseUrl, Map<String, String> params) {
+    public static String genUrlByParams(String baseUrl, Map<String, String> params) {
 
         if(StrUtil.isBlank(baseUrl)){
             return null;

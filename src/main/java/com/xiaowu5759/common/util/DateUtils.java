@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * 和hutool功能，都是重复的
- * 自己重写一份，对于可视化工具非常有用，基于时间维度的变化
+ * 关于是否保持一致的问题，周日在java中默认是0
  *
  * @author xiaowu
  * @date 2020/7/27 10:15
@@ -31,11 +31,11 @@ public class DateUtils {
     public static WeekEnum getWeekDay(Date date){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        int weekIndex = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        int weekIndex = calendar.get(Calendar.DAY_OF_WEEK);
         // 周日转化为0
-        if (weekIndex <= 0 || weekIndex > 7) {
+        if (weekIndex < 0 || weekIndex > 7) {
             // 周日是阳光的一天
-            weekIndex = 7;
+            weekIndex = 0;
         }
         for (WeekEnum weekEnum:WeekEnum.values()) {
             if(weekIndex == weekEnum.getNumber()){
