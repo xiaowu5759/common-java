@@ -19,22 +19,4 @@ public class ImpulseCharUtils {
 
     private static final Logger log = LoggerFactory.getLogger(ImpulseCharUtils.class);
 
-    public static void main(String[] args) {
-
-        // subString，取头不取尾
-//        String hello = "helloworld";
-//        String hell = "hell";
-//        System.out.println(hello.length());
-//        System.out.println(hell.length());
-//
-//        String helloS = hello.substring(hell.length(), hello.length());
-//        System.out.println(helloS);
-
-        String targetSys = "WXPay";
-        log.info("【银联商务回调】targetSys={}", targetSys);
-        if(StrUtil.isBlank(targetSys) || !("WXPay".equals(targetSys) || targetSys.contains("Alipay"))){
-            log.info("【银联商务回调】targetSys进入");
-        }
-
-    }
 }
