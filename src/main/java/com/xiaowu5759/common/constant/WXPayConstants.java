@@ -4,8 +4,8 @@ package com.xiaowu5759.common.constant;
  * @author xiaowu
  * @date 2021/5/17 5:26 PM
  */
-public final class WechatPayConstants {
-    private WechatPayConstants(){}
+public final class WXPayConstants {
+    private WXPayConstants(){}
 
     public static final String DEFAULT_SPBILL_CREATE_IP = "8.8.8.8";
 

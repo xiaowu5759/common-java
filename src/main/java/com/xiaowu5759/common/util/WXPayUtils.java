@@ -1,7 +1,6 @@
 package com.xiaowu5759.common.util;
 
-import com.xiaowu5759.common.constant.AliPayConstants;
-import com.xiaowu5759.common.constant.WechatPayConstants;
+import com.xiaowu5759.common.constant.WXPayConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +15,9 @@ import java.util.Map;
  * @author xiaowu
  * @date 2021/5/17 5:27 PM
  */
-public class WechatPayUtils {
+public class WXPayUtils {
 
-    private static final Logger log = LoggerFactory.getLogger(WechatPayUtils.class);
+    private static final Logger log = LoggerFactory.getLogger(WXPayUtils.class);
 
 
     // 随机字符串，随机数工具类
@@ -37,7 +36,7 @@ public class WechatPayUtils {
         String signContent = getSignContent(params);
         signContent = signContent + "&key=" + privateKey;
         log.info("sign content: {}",signContent);
-        if (WechatPayConstants.SignType.MD5.equals(signType)) {
+        if (WXPayConstants.SignType.MD5.equals(signType)) {
             return md5(signContent);
         }
         throw new RuntimeException("支付宝签名方式有误");
@@ -69,7 +68,7 @@ public class WechatPayUtils {
      */
     public static String md5(String signContent) {
         try {
-            MessageDigest md = MessageDigest.getInstance(WechatPayConstants.SignType.MD5);
+            MessageDigest md = MessageDigest.getInstance(WXPayConstants.SignType.MD5);
             byte[] array = md.digest(signContent.getBytes("UTF-8"));
             StringBuilder sb = new StringBuilder();
             for (byte item : array) {

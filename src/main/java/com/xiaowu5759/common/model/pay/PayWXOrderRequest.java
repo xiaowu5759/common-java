@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.model.pay;
 
 
-import com.xiaowu5759.common.constant.WechatPayConstants;
+import com.xiaowu5759.common.constant.WXPayConstants;
 
 /**
  * 微信下单接口
@@ -10,7 +10,7 @@ import com.xiaowu5759.common.constant.WechatPayConstants;
  * @date 2021/5/18 2:15 PM
  */
 
-public class WechatPayOrderRequest {
+public class PayWXOrderRequest {
 
 //    @Element(name = "appid")
     private String appid;
@@ -24,7 +24,7 @@ public class WechatPayOrderRequest {
 //    @Element(name = "sign")
     private String sign;
 
-    private String signType = WechatPayConstants.SignType.MD5;
+    private String signType = WXPayConstants.SignType.MD5;
 
 //    @Element(name = "attach", required = false)
     private String attach;
