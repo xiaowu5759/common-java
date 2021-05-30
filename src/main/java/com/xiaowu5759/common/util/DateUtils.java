@@ -45,12 +45,4 @@ public class DateUtils {
         return WeekEnum.SUNDAY;
     }
 
-
-
-    public static void main(String[] args) {
-        // 返回的周日是1，不符合中国习惯
-        Week week = DateUtil.dayOfWeekEnum(new Date());
-        WeekEnum weekDay = getWeekDay(new Date());
-        System.out.println(weekDay);
-    }
 }

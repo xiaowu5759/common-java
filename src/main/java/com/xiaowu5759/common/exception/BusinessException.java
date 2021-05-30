@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.exception;
 
 
-import com.xiaowu5759.common.result.ErrorCodeEnum;
+import com.xiaowu5759.common.result.ErrCodeEnum;
 
 /**
  * 通用业务异常类，向上抛出处理
@@ -28,9 +28,9 @@ public abstract class BusinessException extends RuntimeException {
 
     // 为了和Exception融合，给它添加message
     // 可以打印出，Resolved [com.xiaowu5759.springbootmaven.domain.exception.UserException: errCode: A0001, errMsg: 用户端错误]
-    BusinessException(ErrorCodeEnum errorCodeEnum){
-        super("errCode: " + errorCodeEnum.getErrCode() + ", errMsg: " + errorCodeEnum.getErrMsg());
-        this.errCode = errorCodeEnum.getErrCode();
-        this.errMsg = errorCodeEnum.getErrMsg();
+    BusinessException(ErrCodeEnum errCodeEnum){
+        super("errCode: " + errCodeEnum.getErrCode() + ", errMsg: " + errCodeEnum.getErrMsg());
+        this.errCode = errCodeEnum.getErrCode();
+        this.errMsg = errCodeEnum.getErrMsg();
     }
 }

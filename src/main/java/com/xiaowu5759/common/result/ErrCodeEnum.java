@@ -8,7 +8,7 @@ package com.xiaowu5759.common.result;
  * @author xiaowu
  * @date 2020/7/7 10:10
  */
-public enum ErrorCodeEnum {
+public enum ErrCodeEnum {
     /* 成功 */
     SUCCESS("00000", "一切ok"),
 
@@ -27,7 +27,7 @@ public enum ErrorCodeEnum {
     private String errMsg;
 
     // 枚举类构造函数
-    ErrorCodeEnum(String errCode, String errMsg) {
+    ErrCodeEnum(String errCode, String errMsg) {
         this.errCode = errCode;
         this.errMsg = errMsg;
     }

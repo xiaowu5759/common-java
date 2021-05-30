@@ -12,7 +12,7 @@ import com.xiaowu5759.common.exception.BusinessException;
 public class ResultWrapper {
 
     public static ResultVO ok(){
-        return new ResultVO(ErrorCodeEnum.SUCCESS);
+        return new ResultVO(ErrCodeEnum.SUCCESS);
     }
 
     public static <T> ResultVO<T> ok(T data){
@@ -20,23 +20,23 @@ public class ResultWrapper {
     }
 
     public static ResultVO fail(){
-        return new ResultVO(ErrorCodeEnum.SYSTEM_ERROR);
+        return new ResultVO(ErrCodeEnum.SYSTEM_ERROR);
     }
 
     public static <T> ResultVO<T> fail(T data){
-        return new ResultVO<T>(ErrorCodeEnum.SYSTEM_ERROR, data);
+        return new ResultVO<T>(ErrCodeEnum.SYSTEM_ERROR, data);
     }
 
-    public static ResultVO wrap(ErrorCodeEnum errorCodeEnum){
-        return new ResultVO(errorCodeEnum);
+    public static ResultVO wrap(ErrCodeEnum errCodeEnum){
+        return new ResultVO(errCodeEnum);
     }
 
     public static ResultVO wrap(BusinessException e){
         return new ResultVO(e.getErrCode(), e.getErrMsg());
     }
 
-    public static <T> ResultVO<T> wrap(ErrorCodeEnum errorCodeEnum, T data){
-        return new ResultVO<T>(errorCodeEnum, data);
+    public static <T> ResultVO<T> wrap(ErrCodeEnum errCodeEnum, T data){
+        return new ResultVO<T>(errCodeEnum, data);
     }
 
     public static <T> ResultVO<T> wrap(BusinessException e, T data){

@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * 汉字转拼音工具类
+ * pinyin需要hutool包中添加依赖
  *
  * @author xiaowu
  * @date 2020/7/31 13:38

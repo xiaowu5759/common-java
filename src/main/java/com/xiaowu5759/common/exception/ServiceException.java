@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.exception;
 
 
-import com.xiaowu5759.common.result.ErrorCodeEnum;
+import com.xiaowu5759.common.result.ErrCodeEnum;
 
 /**
  * 调用第三方服务出错
@@ -11,10 +11,10 @@ import com.xiaowu5759.common.result.ErrorCodeEnum;
  */
 public class ServiceException extends BusinessException{
     public ServiceException(){
-        super(ErrorCodeEnum.SERVICE_ERROR);
+        super(ErrCodeEnum.SERVICE_ERROR);
     }
 
-    public ServiceException(ErrorCodeEnum errorCodeEnum){
-        super(errorCodeEnum);
+    public ServiceException(ErrCodeEnum errCodeEnum){
+        super(errCodeEnum);
     }
 }

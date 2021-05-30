@@ -25,20 +25,20 @@ public class ResultVO<T> {
     private T data;
 
     // 包内私有，不允许自定义errCode,errMsg
-    ResultVO(ErrorCodeEnum errorCodeEnum){
-        this.errCode = errorCodeEnum.getErrCode();
-        this.errMsg = errorCodeEnum.getErrMsg();
+    ResultVO(ErrCodeEnum errCodeEnum){
+        this.errCode = errCodeEnum.getErrCode();
+        this.errMsg = errCodeEnum.getErrMsg();
     }
 
     ResultVO(T data) {
-        this.errCode = ErrorCodeEnum.SUCCESS.getErrCode();
-        this.errMsg = ErrorCodeEnum.SUCCESS.getErrMsg();
+        this.errCode = ErrCodeEnum.SUCCESS.getErrCode();
+        this.errMsg = ErrCodeEnum.SUCCESS.getErrMsg();
         this.data = data;
     }
 
-    ResultVO(ErrorCodeEnum errorCodeEnum, T data){
-        this.errCode = errorCodeEnum.getErrCode();
-        this.errMsg = errorCodeEnum.getErrMsg();
+    ResultVO(ErrCodeEnum errCodeEnum, T data){
+        this.errCode = errCodeEnum.getErrCode();
+        this.errMsg = errCodeEnum.getErrMsg();
         this.data = data;
     }
 
