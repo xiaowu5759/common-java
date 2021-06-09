@@ -5,6 +5,7 @@ package com.xiaowu5759.common.constant;
  * @date 2021/5/24 9:46 AM
  */
 public final class DateFormatConstants {
+    private DateFormatConstants(){}
 
     public static final String MM_DD = "MM-dd";
 

@@ -20,7 +20,7 @@
     <property name="fileLogPattern" value="%date{yyyy-MM-dd HH:mm:ss} | %-5level | [%thread] | %c | %M:%L | %m%n"/>
 
     <!--项目名称-->
-    <property name="appName" value="springmaster"/>
+    <property name="appName" value="common-java"/>
 
     <!-- 输出到控制台 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

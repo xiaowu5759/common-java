@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author xiaowu
  * @date 2021/5/28 4:09 PM
  */
-@PropertySource(value = "classpath:prop/jdbc.properties")
+@PropertySource(value = "classpath:config/jdbc.properties")
 @Component
 public class JDBCProperties {
 
