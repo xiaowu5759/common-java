@@ -1,4 +1,4 @@
-package com.xiaowu5759.common.model;
+package com.xiaowu5759.common.dto;
 
 /**
  * 这里的维度数据：
@@ -34,10 +34,10 @@ public class CommonDTO {
     /** key值 */
     private String key;
 
-    /** value值 */
+    /** value值，一般都是统计count值 */
     private Object value;
 
-    /** 标签，词条管理 */
+    /** 标签，词条管理，一般有时间 */
     private String tag;
 
     public String getKey() {
