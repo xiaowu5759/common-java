@@ -11,36 +11,36 @@ import com.xiaowu5759.common.exception.BusinessException;
  */
 public class ResultWrapper {
 
-    public static ResultVO ok(){
-        return new ResultVO(ErrCodeEnum.SUCCESS);
+    public static JsonResultVO ok(){
+        return new JsonResultVO(ErrorCodeEnum.SUCCESS);
     }
 
-    public static <T> ResultVO<T> ok(T data){
-        return new ResultVO<T>(data);
+    public static <T> JsonResultVO<T> ok(T data){
+        return new JsonResultVO<T>(data);
     }
 
-    public static ResultVO fail(){
-        return new ResultVO(ErrCodeEnum.SYSTEM_ERROR);
+    public static JsonResultVO fail(){
+        return new JsonResultVO(ErrorCodeEnum.SYSTEM_ERROR);
     }
 
-    public static <T> ResultVO<T> fail(T data){
-        return new ResultVO<T>(ErrCodeEnum.SYSTEM_ERROR, data);
+    public static <T> JsonResultVO<T> fail(T data){
+        return new JsonResultVO<T>(ErrorCodeEnum.SYSTEM_ERROR, data);
     }
 
-    public static ResultVO wrap(ErrCodeEnum errCodeEnum){
-        return new ResultVO(errCodeEnum);
+    public static JsonResultVO wrap(ErrorCodeEnum errorCodeEnum){
+        return new JsonResultVO(errorCodeEnum);
     }
 
-    public static ResultVO wrap(BusinessException e){
-        return new ResultVO(e.getErrCode(), e.getErrMsg());
+    public static JsonResultVO wrap(BusinessException e){
+        return new JsonResultVO(e.getErrorCode(), e.getErrorMsg());
     }
 
-    public static <T> ResultVO<T> wrap(ErrCodeEnum errCodeEnum, T data){
-        return new ResultVO<T>(errCodeEnum, data);
+    public static <T> JsonResultVO<T> wrap(ErrorCodeEnum errorCodeEnum, T data){
+        return new JsonResultVO<T>(errorCodeEnum, data);
     }
 
-    public static <T> ResultVO<T> wrap(BusinessException e, T data){
-        return new ResultVO<T>(e.getErrCode(), e.getErrMsg(), data);
+    public static <T> JsonResultVO<T> wrap(BusinessException e, T data){
+        return new JsonResultVO<T>(e.getErrorCode(), e.getErrorMsg(), data);
     }
 
 }

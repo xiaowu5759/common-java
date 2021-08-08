@@ -1,4 +1,4 @@
-package com.xiaowu5759.common.model;
+package com.xiaowu5759.common.dto;
 
 
 import java.util.List;

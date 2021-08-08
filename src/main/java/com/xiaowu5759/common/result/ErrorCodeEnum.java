@@ -8,7 +8,7 @@ package com.xiaowu5759.common.result;
  * @author xiaowu
  * @date 2020/7/7 10:10
  */
-public enum ErrCodeEnum {
+public enum ErrorCodeEnum {
     /* 成功 */
     SUCCESS("00000", "一切ok"),
 
@@ -22,21 +22,21 @@ public enum ErrCodeEnum {
     /* 一级宏观码 第三方服务 */
     SERVICE_ERROR("C0001", "调用第三方服务出错");
 
-    private String errCode;
+    private String errorCode;
 
-    private String errMsg;
+    private String errorDesc;
 
     // 枚举类构造函数
-    ErrCodeEnum(String errCode, String errMsg) {
-        this.errCode = errCode;
-        this.errMsg = errMsg;
+    ErrorCodeEnum(String errorCode, String errorDesc) {
+        this.errorCode = errorCode;
+        this.errorDesc = errorDesc;
     }
 
-    public String getErrCode() {
-        return errCode;
+    public String getErrorCode() {
+        return errorCode;
     }
 
-    public String getErrMsg() {
-        return errMsg;
+    public String getErrorDesc() {
+        return errorDesc;
     }
 }

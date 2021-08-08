@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.exception;
 
 
-import com.xiaowu5759.common.result.ErrCodeEnum;
+import com.xiaowu5759.common.result.ErrorCodeEnum;
 
 /**
  * 系统执行出错
@@ -11,10 +11,10 @@ import com.xiaowu5759.common.result.ErrCodeEnum;
  */
 public class SystemException extends BusinessException {
     public SystemException(){
-        super(ErrCodeEnum.SYSTEM_ERROR);
+        super(ErrorCodeEnum.SYSTEM_ERROR);
     }
 
-    public SystemException(ErrCodeEnum errCodeEnum){
-        super(errCodeEnum);
+    public SystemException(ErrorCodeEnum errorCodeEnum){
+        super(errorCodeEnum);
     }
 }

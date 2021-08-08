@@ -1,7 +1,7 @@
 package com.xiaowu5759.common.exception;
 
 
-import com.xiaowu5759.common.result.ErrCodeEnum;
+import com.xiaowu5759.common.result.ErrorCodeEnum;
 
 /**
  * 用户端错误
@@ -12,11 +12,11 @@ import com.xiaowu5759.common.result.ErrCodeEnum;
 public class UserException extends BusinessException{
     // 构造函数
     public UserException(){
-        super(ErrCodeEnum.USER_ERROR);
+        super(ErrorCodeEnum.USER_ERROR);
     }
 
-    public UserException(ErrCodeEnum errCodeEnum){
-        super(errCodeEnum);
+    public UserException(ErrorCodeEnum errorCodeEnum){
+        super(errorCodeEnum);
     }
 
 }
